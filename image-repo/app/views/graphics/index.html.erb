@@ -12,16 +12,31 @@
 
   <body>
     <div class="flex-box">
-        <h1><%=@graphics[0].title%></h1>
-    </div>
-    <div class="flex-box">
-        <% if @graphics[0].image.attached? %>
-            <%= image_tag @graphics[0].image, style: "max-width: 900px;" %>
+        <%= form_with url: "/graphics", method: :get do |form| %>
+        <%= form.label :query, "Search for Images:" %>
+        <%= form.text_field :query %>
+        <%= form.submit "Search" %>
         <% end %>
     </div>
-    <div class="flex-box">
-        <h3><%=@graphics[0].description%></h3>
-    </div>
+    <table style="width:100%;">
+        <% @graphics.each do |graphic| %>
+            <tr>
+                <td>
+                    <div class="flex-box">
+                        <h2><%= graphic.title %></h2>
+                    </div>
+                    <div class="flex-box">
+                            <% if graphic.image.attached? %>
+                                <%= image_tag graphic.image, style: "max-width: 900px;" %>
+                            <% end %>
+                    </div>
+                    <div class="flex-box">
+                        <%= graphic.description %>
+                    </div>
+                </td>
+            </tr>
+        <% end %>
+    </table>
   </body>
 </html>
 
@@ -29,5 +44,8 @@
   .flex-box {
     display: flex;
     justify-content: center;
+  }
+  td {
+      border: 1px solid black;
   }
 </style> 
