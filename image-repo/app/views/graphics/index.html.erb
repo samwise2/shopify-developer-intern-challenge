@@ -12,15 +12,15 @@
 
   <body>
     <div class="flex-box">
-        <h1><%=@graphic.title%></h1>
+        <h1><%=@graphics[0].title%></h1>
     </div>
     <div class="flex-box">
-        <% if @graphic.image.attached? %>
-            <%= image_tag @graphic.image, style: "max-width: 900px;" %>
+        <% if @graphics[0].image.attached? %>
+            <%= image_tag @graphics[0].image, style: "max-width: 900px;" %>
         <% end %>
     </div>
     <div class="flex-box">
-        <h3><%=@graphic.description%></h3>
+        <h3><%=@graphics[0].description%></h3>
     </div>
   </body>
 </html>
