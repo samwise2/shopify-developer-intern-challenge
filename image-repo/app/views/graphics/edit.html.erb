@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ImageRepo</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="flex-box">
+      <h1>Edit a Public Graphic</h1>
+    </div>
+    <div class="flex-box">
+      <%= form_with method: "patch", model: @graphic_to_edit do |form| %>
+        <div class="flex-box">
+          Enter a New Title for This Graphic
+        </div>
+        <div class="flex-box">
+          <%= form.text_field :title %>
+        </div>
+        <div class="flex-box">
+            <% if @graphic_to_edit.image.attached? %>
+                <%= image_tag @graphic_to_edit.image, style: "max-width: 900px;" %>
+            <% end %>
+        </div>
+        <div class="flex-box">
+          Enter a Description for This Graphic
+        </div>
+        <div class="flex-box">
+          <%= form.text_area :description, size: "60x10" %>
+        </div>
+        <div class="flex-box">
+          <%= form.submit %>
+        </div>
+      <% end %>
+    </div>
+  </body>
+</html>
+
+<style type="text/css">
+  .flex-box {
+    display: flex;
+    justify-content: center;
+  }
+</style> 

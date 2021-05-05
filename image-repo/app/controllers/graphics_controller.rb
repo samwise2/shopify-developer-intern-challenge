@@ -12,6 +12,7 @@ class GraphicsController < ApplicationController
             end
         end
     end
+
     def new
         @graphic = Graphic.new
         respond_to do |format|
@@ -19,9 +20,11 @@ class GraphicsController < ApplicationController
             format.json  { render :json => @graphic }
         end
     end
+
     def show
         @graphic = Graphic.find(params[:id])
     end
+
     def index
         if !params[:query].blank?
             first = Graphic.where("title like ?", "%#{params[:query]}%")
@@ -30,6 +33,16 @@ class GraphicsController < ApplicationController
         else
             @graphics = Graphic.all
         end
+    end
+
+    def edit
+        @graphic_to_edit = Graphic.find(params[:id])
+    end
+    
+    def update
+        graphic_params = check_graphic_params
+        Graphic.update(params[:id], graphic_params)
+        redirect_to action: "show", id: params[:id]
     end
 
     private 
