@@ -1,11 +1,7 @@
 class GraphicsController < ApplicationController
     def create
-        graphic_params = params.require(:graphic).permit(:title, :description, :image)
+        graphic_params = check_graphic_params
         @graphic = Graphic.new(graphic_params)
-        #@graphic = Graphic.new
-        #@graphic.title = params[:graphic][:title]
-        #@graphic.description = params[:graphic][:description]
-        #@graphic.image.attach(params[:graphic][:image])
         respond_to do |format|
             if @graphic.save
               format.html  { redirect_to(@graphic, :notice => 'Graphic was successfully created.') }
@@ -27,6 +23,18 @@ class GraphicsController < ApplicationController
         @graphic = Graphic.find(params[:id])
     end
     def index
-        @graphics = Graphic.all
+        if !params[:query].blank?
+            first = Graphic.where("title like ?", "%#{params[:query]}%")
+            second = Graphic.where("description like ?", "%#{params[:query]}%").where("title not like ?", "%#{params[:query]}%")
+            @graphics = first + second
+        else
+            @graphics = Graphic.all
+        end
+    end
+
+    private 
+
+    def check_graphic_params
+        return params.require(:graphic).permit(:title, :description, :image)
     end
 end
