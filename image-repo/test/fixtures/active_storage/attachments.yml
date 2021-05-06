@@ -1,0 +1,4 @@
+one_picture:
+  name: image
+  record: one (Graphic)
+  blob: ones_picture_blob
