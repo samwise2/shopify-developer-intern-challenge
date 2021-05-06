@@ -56,9 +56,17 @@ To view the graphic you created you can visit: `localhost:3000/graphics/1`.
 
 To view all graphics you have uploaded you can visit `localhost:3000/graphics`
 
+<img width="254" alt="Screen Shot 2021-05-06 at 6 19 42 PM" src="https://user-images.githubusercontent.com/24325294/117372504-a36c2380-ae97-11eb-842b-25b11a29aaf0.png">
+
+
 To search for graphics you can enter any text you would like into the search bar at `localhost:3000/graphics`. This will then search for graphics who's title or description match your query and display them in order of relevance. You can also hit `localhost:3000/graphics?query={"my+query+here"}` directly.
 
+<img width="1222" alt="Screen Shot 2021-05-06 at 6 20 12 PM" src="https://user-images.githubusercontent.com/24325294/117372558-b54dc680-ae97-11eb-8a01-3cdac19c101a.png">
+
 To edit a graphic that you have already made you can visit `localhost:3000/graphics/1/edit`, or more generally `localhost:3000/graphics/{:id}`. This will allow you to change the title and description of an existing graphic.
+
+<img width="1236" alt="Screen Shot 2021-05-06 at 6 20 37 PM" src="https://user-images.githubusercontent.com/24325294/117372584-c39be280-ae97-11eb-8a1d-926034f2da4e.png">
+
 
 ## Tests
 
