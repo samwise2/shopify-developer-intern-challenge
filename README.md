@@ -3,7 +3,15 @@ By: Sam Orend
 
 ## Summary
 
-For my developer intern challenge I made a shutterstock-esque application. My app allows users to create new "graphics", edit their titles and descriptions and finally search a public directory that sorts the graphics based on relevance.
+For my developer intern challenge I made a shutterstock-esque application.
+
+My app allows users to:
+- Create a `Graphic`
+  - A `Graphic` consists of an image file uploaded from their computer, and a title and description given by the user
+- Edit a `Graphic`
+  - Users can modify the title and descriptions that they give their `Graphics`
+- View all `Graphics`
+- Search for `Graphics` and view a list of `Graphics` sorted by relevance   
 
 ## Get Started
 
